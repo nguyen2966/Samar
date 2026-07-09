@@ -644,3 +644,108 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+
+/* Blog */
+
+.blog{
+  margin-top: 50px;
+  background-image: url('../images/bg16.png');
+  background-size: cover;
+}
+
+.blog-content{
+  width: 100%;
+}
+
+.blog-content .blog-content-item{
+  text-align: left;
+  background: rgba(245, 95, 141, 0.1);
+  border-radius: 8px;
+  position: relative;
+}
+
+.blog-content .slick-list {
+  overflow: hidden !important;
+  margin: 0 -10px;
+}
+
+.blog-content .slick-track {
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+.blog-content .slick-slide {
+  outline: none;
+  height: auto !important;
+  margin: 0 20px;
+  float: none !important;
+  min-width: 0 !important;
+}
+
+.blog-content .slick-dots,
+.blog-content .slick-arrow {
+  display: none !important;
+}
+
+.blog-content .blog-content-item .overlay-date-banner{
+  position: absolute;
+  left: 10px;
+  top: 200px;
+  background-image: linear-gradient(to right, #f55f8d 0, #f8ae56 51%, #f55f8d 100%);
+  padding: 10px 30px;
+  border-radius: 10px;
+  color: white;
+  font-size: 14px;
+}
+
+
+.blog-content .blog-content-item .blog-content-item-img img{
+  width: 100%;
+  border-radius: 10px;
+}
+
+.blog-content .blog-content-item .blog-content-item-text{
+  margin-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 40px;
+}
+
+.blog-content .blog-content-item .blog-content-item-text h3{
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #262626;
+}
+
+.blog-content .blog-content-item .blog-content-item-text p{
+ color: #636363;
+}
+
+.blog-content .blog-content-item .blog-content-item-footer{
+  display: flex;
+  flex-direction: row;
+  border-top: 0.5px solid gray;
+  padding: 20px 20px;
+  gap: 20px;
+}
+
+.blog-content .blog-content-item .blog-content-item-footer .footer-item{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.blog-content .blog-content-item .blog-content-item-footer i {
+  font-size: 22px;
+  color: #f55f8d;
+}
+
+.blog-content .blog-content-item .blog-content-item-footer p{
+  color: #636363;
+}
+
+.blog-content .blog-content-item .blog-content-item-footer .author span{
+  color: #f55f8d;
+}
+
