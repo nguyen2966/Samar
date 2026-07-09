@@ -679,6 +679,10 @@
         </div>
       </div>
 
+  <button class="scroll-top-button" type="button" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
@@ -702,6 +706,8 @@
     document.addEventListener('DOMContentLoaded', function () {
       const sections = document.querySelectorAll('.intro, .about-us');
       const portfolioItems = document.querySelectorAll('.portfolio-grid-item');
+      const scrollTopButton = document.querySelector('.scroll-top-button');
+      const servicesSection = document.querySelector('.services');
 
       const observer = new IntersectionObserver(function (entries, obs) {
         entries.forEach(function (entry) {
@@ -754,6 +760,28 @@
       if (portfolioGrid) {
         portfolioObserver.observe(portfolioGrid);
       }
+
+      function updateScrollTopButton() {
+        if (!scrollTopButton || !servicesSection) return;
+
+        if (window.scrollY >= servicesSection.offsetTop) {
+          scrollTopButton.classList.add('is-visible');
+        } else {
+          scrollTopButton.classList.remove('is-visible');
+        }
+      }
+
+      if (scrollTopButton) {
+        scrollTopButton.addEventListener('click', function () {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      }
+
+      window.addEventListener('scroll', updateScrollTopButton);
+      updateScrollTopButton();
     });
 
     $('.counter').countUp({
