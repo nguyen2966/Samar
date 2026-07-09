@@ -18,6 +18,10 @@
     href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
 
+  <!-- Fancy box -->
+   <!-- Fancy box -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.css" />
+
   <link rel="stylesheet" href="./css/style.css">
 </head>
 
@@ -296,11 +300,109 @@
     </div>
   </div>
 
+  <div class="portfolio">
+    <div class="container">
+      <div class="title">
+        <p class="styled-p">Portfolio</p>
+        <h2 class="styled-h2">Our Latest Work </h2>
+      </div>
+
+      <div class="portfolio-grid">
+        <div class="portfolio-grid-item item-1">
+          <img src="./images/pic1_2.jpg">
+          <div class="overlay">
+            <a class="overlay-icon" href="./images/pic1_2.jpg" data-fancybox="portfolio-gallery" data-caption="Software Landing - Project 1" aria-label="Open gallery image">
+              <i class="fa-solid fa-plus"></i>
+            </a>
+
+            <div class="overlay-text">
+              <p>Software Landing</p>
+              <p>By John Doe</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-grid-item item-2">
+          <img src="./images/pic2_1.jpg">
+           <div class="overlay">
+            <a class="overlay-icon" href="./images/pic2_1.jpg" data-fancybox="portfolio-gallery" data-caption="Software Landing - Project 2" aria-label="Open gallery image">
+              <i class="fa-solid fa-plus"></i>
+            </a>
+
+            <div class="overlay-text">
+              <p>Software Landing</p>
+              <p>By John Doe</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-grid-item item-3">
+          <img src="./images/pic3_1.jpg">
+           <div class="overlay">
+            <a class="overlay-icon" href="./images/pic3_1.jpg" data-fancybox="portfolio-gallery" data-caption="Software Landing - Project 3" aria-label="Open gallery image">
+              <i class="fa-solid fa-plus"></i>
+            </a>
+
+            <div class="overlay-text">
+              <p>Software Landing</p>
+              <p>By John Doe</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-grid-item item-4">
+          <img src="./images/pic4.jpg">
+           <div class="overlay">
+            <a class="overlay-icon" href="./images/pic4.jpg" data-fancybox="portfolio-gallery" data-caption="Software Landing - Project 4" aria-label="Open gallery image">
+              <i class="fa-solid fa-plus"></i>
+            </a>
+
+            <div class="overlay-text">
+              <p>Software Landing</p>
+              <p>By John Doe</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-grid-item item-5">
+          <img src="./images/pic5.jpg">
+           <div class="overlay">
+            <a class="overlay-icon" href="./images/pic5.jpg" data-fancybox="portfolio-gallery" data-caption="Software Landing - Project 5" aria-label="Open gallery image">
+              <i class="fa-solid fa-plus"></i>
+            </a>
+
+            <div class="overlay-text">
+              <p>Software Landing</p>
+              <p>By John Doe</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-grid-item item-6">
+          <img src="./images/pic6.jpg">
+           <div class="overlay">
+            <a class="overlay-icon" href="./images/pic6.jpg" data-fancybox="portfolio-gallery" data-caption="Software Landing - Project 6" aria-label="Open gallery image">
+              <i class="fa-solid fa-plus"></i>
+            </a>
+
+            <div class="overlay-text">
+              <p>Software Landing</p>
+              <p>By John Doe</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
   <!-- Waypoints -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js" integrity="sha512-ZKNVEa7gi0Dz4Rq9jXcySgcPiK+5f01CqW+ZoKLLKr9VMXuCsw3RjWiv8ZpIOa0hxO79np7Ec8DDWALM0bDOaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+   <!-- Fancy Box -->
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.umd.js"></script>
 
   <!-- countup.js -->
   <script src="./js/jquery.countup.js"></script>
@@ -308,6 +410,7 @@
   <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', function () {
       const sections = document.querySelectorAll('.intro, .about-us');
+      const portfolioItems = document.querySelectorAll('.portfolio-grid-item');
 
       const observer = new IntersectionObserver(function (entries, obs) {
         entries.forEach(function (entry) {
@@ -327,11 +430,48 @@
       sections.forEach(function (section) {
         observer.observe(section);
       });
+
+      const portfolioObserver = new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+
+          const items = Array.from(entry.target.querySelectorAll('.portfolio-grid-item'));
+          const order = [
+            ['.item-1', '.item-2'],
+            ['.item-3', '.item-4', '.item-6'],
+            ['.item-5']
+          ];
+
+          order.forEach(function (group, groupIndex) {
+            group.forEach(function (selector, itemIndex) {
+              const item = entry.target.querySelector(selector);
+              if (!item) return;
+
+              setTimeout(function () {
+                item.classList.add('is-visible');
+              }, groupIndex * 250 + itemIndex * 120);
+            });
+          });
+
+          obs.unobserve(entry.target);
+        });
+      }, {
+        threshold: 0.2
+      });
+
+      const portfolioGrid = document.querySelector('.portfolio-grid');
+      if (portfolioGrid) {
+        portfolioObserver.observe(portfolioGrid);
+      }
     });
 
     $('.counter').countUp({
       'time': 2000,
       'delay': 10
+    });
+
+    Fancybox.bind("[data-fancybox]", {
+      // Your custom options
     });
   </script>
 </body>
