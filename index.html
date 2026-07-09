@@ -193,7 +193,119 @@
       </div>
     </div>
   </div>
-  <script>
+
+  <div class="number">
+    <div class="container">
+      <div class="number-content">
+        <div class="number-item">
+          <div class="number-item-icon">
+            <i class="fa-regular fa-face-smile-beam"></i>
+          </div>
+
+          <div class="number-item-num">
+            <p><span class="counter">18</span> MI</p>
+          </div>
+
+          <p>Satisfied Clients</p>
+        </div>
+
+       <div class="number-item">
+          <div class="number-item-icon">
+           <i class="fa-solid fa-chart-line"></i>
+          </div>
+
+          <div class="number-item-num">
+            <p><span class="counter">20</span> MI</p>
+          </div>
+
+          <p>Project Completed</p>
+        </div>
+
+        <div class="number-item">
+          <div class="number-item-icon">
+            <i class="fa-solid fa-rocket"></i>
+          </div>
+
+          <div class="number-item-num">
+            <p><span class="counter">30</span> MI</p>
+          </div>
+
+          <p>Project Launched</p>
+        </div>
+
+        <div class="number-item">
+          <div class="number-item-icon">
+           <i class="fa-solid fa-award"></i>
+          </div>
+
+          <div class="number-item-num">
+            <p><span class="counter">50</span></p>
+          </div>
+
+          <p>Years Completed</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="features">
+    <div class="container">
+      <div class="features-content">
+        <div class="features-content-detail">
+          <p class="styled-p">Our Features</p>
+          <h2 class="styled-h2">Behind The Story<br>
+           Of Samar Agency</h2>
+
+           <div class="features-item-list">
+              <div class="feature-item">
+                <div class="feature-item-icon">
+                  <i class="fa-regular fa-lightbulb"></i>
+                </div>
+                <div class="feature-item-text">
+                  <h3>Idea & Analysis Gathering</h3>
+                  <p class="styled-p-1">Maecenas laoreet efficitur sagittis. Aliquam eleifend<br>nisl leo, sit amet consequat augue.</p>
+                </div>
+              </div>
+
+               <div class="feature-item">
+                <div class="feature-item-icon">
+                  <i class="fa-solid fa-laptop-code"></i>
+                </div>
+                <div class="feature-item-text">
+                  <h3>Design & Developing</h3>
+                  <p class="styled-p-1">Maecenas laoreet efficitur sagittis. Aliquam eleifend<br>nisl leo, sit amet consequat augue.</p>
+                </div>
+              </div>
+
+               <div class="feature-item">
+                <div class="feature-item-icon">
+                  <i class="fa-solid fa-circle-play"></i>
+                </div>
+                <div class="feature-item-text">
+                  <h3>Testing & Luanching</h3>
+                  <p class="styled-p-1">Maecenas laoreet efficitur sagittis. Aliquam eleifend<br>nisl leo, sit amet consequat augue.</p>
+                </div>
+              </div>
+           </div>
+        </div>
+
+        <div class="feature-content-img">
+          <img src="./images/pic3.png" alt="img">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <!-- Waypoints -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js" integrity="sha512-ZKNVEa7gi0Dz4Rq9jXcySgcPiK+5f01CqW+ZoKLLKr9VMXuCsw3RjWiv8ZpIOa0hxO79np7Ec8DDWALM0bDOaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- countup.js -->
+  <script src="./js/jquery.countup.js"></script>
+
+  <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', function () {
       const sections = document.querySelectorAll('.intro, .about-us');
 
@@ -215,6 +327,11 @@
       sections.forEach(function (section) {
         observer.observe(section);
       });
+    });
+
+    $('.counter').countUp({
+      'time': 2000,
+      'delay': 10
     });
   </script>
 </body>
