@@ -866,12 +866,14 @@
   margin-top: 50px;
   display: flex;
   flex-direction: row;
-  gap: 80px;
+  justify-content: space-between;
+  gap: 40px;
 }
 
 .footer-detail-item{
   display: flex;
   flex-direction: column;
+  flex: 1 0 260px;
   gap: 20px;
 }
 
@@ -895,10 +897,11 @@
     display: block;
     border-radius: 50px;
     color: white;
+    cursor: pointer;
 }
 
 .footer-detail-item-1 {
-  margin-right: 100px;
+  flex: 1 0 170px;
 }
 
 .footer-detail-item-1 .title-item{
@@ -909,6 +912,10 @@
   display: inline-block;
   padding-bottom: 12px;
   margin-bottom: 40px;
+}
+
+.footer-detail-item-1 .title-item p{
+  white-space: nowrap;
 }
 
 .footer-detail-item-1 .title-item:before{
@@ -983,6 +990,7 @@
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
   transition: all 0.5s;
+  cursor: pointer;
 }
 
 .copyright .copyright-icon i:hover {
